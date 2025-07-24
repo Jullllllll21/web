@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gankster Esports</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #000000, #1a1a1a, #0d0d0d);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://i.imgur.com/9Z3Z5dm.png') repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: orange;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      gap: 15px;
+    }
+
+    .card {
+      background: radial-gradient(circle, rgba(255,140,0,0.2), rgba(0,0,0,0.8));
+      border: 2px solid orange;
+      border-radius: 15px;
+      padding: 10px;
+      width: 120px;
+      text-align: center;
+      color: gold;
+      box-shadow: 0 0 15px rgba(255,140,0,0.5);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .label {
+      font-size: 0.9em;
+      color: #ffcc80;
+      margin-bottom: 5px;
+    }
+
+    .substitute-label {
+      text-align: center;
+      font-size: 0.9em;
+      color: #aaa;
+      margin-top: 40px;
+      font-style: italic;
+    }
+
+    .leader {
+      transform: translateY(-20px);
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .biodata-page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .biodata-page img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px orange;
+    }
+
+    .biodata-page h2 {
+      margin-bottom: 10px;
+      color: gold;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      background-color: orange;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gankster Esports</h1>
+
+  <div id="main-page">
+    <!-- Leader and Co-Leaders -->
+    <div class="row">
+      <div class="card" onclick="showBiodata('coleader1')">
+        <div class="label">Co-Leader 1</div>
+        <img src="co1.jpeg" alt="Co-Leader 1">
+        <div>ali.backburner</div>
+      </div>
+      <div class="card leader" onclick="showBiodata('leader')">
+        <div class="label">Leader</div>
+        <img src="lead.jpeg" alt="Leader">
+        <div>iMiracle</div>
+      </div>
+      <div class="card" onclick="showBiodata('coleader2')">
+        <div class="label">Co-Leader 2</div>
+        <img src="co2.jpeg" alt="Co-Leader 2">
+        <div>xxGolayt</div>
+      </div>
+    </div>
+
+    <!-- Manager and Analyst -->
+    <div class="row">
+      <div class="card" onclick="showBiodata('manager')">
+        <div class="label">Manager</div>
+        <img src="p5.jpg" alt="Manager">
+        <div>Athena</div>
+      </div>
+      <div class="card" onclick="showBiodata('analyst')">
+        <div class="label">Analyst</div>
+        <img src="p5.jpg" alt="Analyst">
+        <div>Arthemis</div>
+      </div>
+    </div>
+
+    <!-- Pemain Inti -->
+    <div class="row">
+      <div class="card" onclick="showBiodata('player1')">
+        <div class="label">ROAMER</div>
+        <img src="p1.jpeg" alt="Pemain 1">
+        <div>D A N Starboy</div>
+      </div>
+      <div class="card" onclick="showBiodata('player2')">
+        <div class="label">GOLD LANER</div>
+        <img src="p2.jpeg" alt="Pemain 2">
+        <div>Nuelvanmeijr</div>
+      </div>
+      <div class="card" onclick="showBiodata('player3')">
+        <div class="label">MIDLANER</div>
+        <img src="p3.jpeg" alt="Pemain 3">
+        <div>Aswal x NIKA</div>
+      </div>
+      <div class="card" onclick="showBiodata('player4')">
+        <div class="label">JUNGLER</div>
+        <img src="p4.jpg" alt="Pemain 4">
+        <div>K r i t x</div>
+      </div>
+      <div class="card" onclick="showBiodata('player5')">
+        <div class="label">EXP LANER</div>
+        <img src="p5.jpg" alt="Pemain 5">
+        <div>N v z y.</div>
+      </div>
+    </div>
+
+    <!-- Cadangan -->
+    <div class="substitute-label">Substitute</div>
+    <div class="row">
+      <div class="card" onclick="showBiodata('sub1')">
+        <div class="label">Subs 1</div>
+        <img src="p5.jpg" alt="Cadangan 1">
+        <div>Sanz Jago</div>
+      </div>
+      <div class="card" onclick="showBiodata('sub2')">
+        <div class="label">Subs 2</div>
+        <img src="p5.jpg" alt="Cadangan 2">
+        <div>Zerren</div>
+      </div>
+      <div class="card" onclick="showBiodata('sub3')">
+        <div class="label">Subs 3</div>
+        <img src="p5.jpg" alt="Cadangan 3">
+        <div>Invoker Andreas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Biodata Pages -->
+  <div id="biodata" class="biodata-page"></div>
+
+<script>
+ const biodataInfo = {
+  leader: {
+    nama: "iMiracle x Rojulan",
+    foto: "lead.jpeg",
+    bio: "Jadi leader bukan soal paling depan, tapi tetap kuat waktu yang lain mulai goyah. Kita satu tim, satu jalan."
+  },
+  coleader1: {
+    nama: "ali x Ruvail",
+    foto: "co1.jpeg",
+    bio: "Saya bantu jaga arah. Kalau tim mulai goyah, saya yang bantu luruskan."
+  },
+  coleader2: {
+    nama: "xxGola x Faykal",
+    foto: "co2.jpeg",
+    bio: "Di sini saya bantu jalan tim. Bukan mau terlihat, tapi supaya semua tetap jalan."
+  },
+  manager: {
+    nama: "Athena x Arya",
+    foto: "img/manager.jpeg",
+    bio: "Saya urus semua di luar game. Biar mereka bisa fokus main, saya yang atur sisanya."
+  },
+  analyst: {
+    nama: "Arthemis x Fian",
+    foto: "img/analyst.jpeg",
+    bio: "Kerjaku di balik layar, bantu tim baca musuh dan siapin strategi."
+  },
+  player1: {
+    nama: "D A N Starboy x Ikbal",
+    foto: "p1.jpeg",
+    bio: "Peranku jaga tim dari depan. Kalau mereka mundur, saya yang tahan duluan."
+  },
+  player2: {
+    nama: "Nuelvanmeijr x Roys",
+    foto: "p2.jpeg",
+    bio: "Saya main agresif, tapi tetap jaga ritme. Kita menang kalau satu irama."
+  },
+  player3: {
+    nama: "NIKA x Aswal",
+    foto: "p3.jpeg",
+    bio: "Saya jaga teman saat main. Kalau ada celah, saya tutup. Tim aman, saya tenang." 
+  },
+  player4: {
+    nama: "K r i t x x Idmaz ",
+    foto: "p4.jpg",
+    bio: "Main game itu biasa, tapi di sini saya main buat tim, bukan sendiri." 
+  },
+  player5: {
+    nama: "N v z y. x Noval",
+    foto: "p5.jpg",
+    bio: "Saya bisa isi posisi mana saja. Di mana pun, yang penting tim tetap solid."
+  },
+  sub1: {
+    nama: "Sanz x Akur",
+    foto: "p5.jpg",
+    bio: "Saya cadangan, tapi tetap siap. Kalau dipanggil, saya langsung gas."
+  },
+  sub2: {
+    nama: "Zerren x Engki",
+    foto: "p5.jpg",
+    bio: "Belum masuk inti, tapi saya tetap ikut irama tim. Belajar, siap, jalan terus."
+  },
+  sub3: {
+    nama: "Invoker x Rahul",
+    foto: "p5.jpg",
+    bio: "Saya bukan cuma nonton, saya simpan tenaga buat saatnya nanti."
+  }
+};
+
+
+
+    function showBiodata(id) {
+      const data = biodataInfo[id];
+      const biodataDiv = document.getElementById("biodata");
+      document.getElementById("main-page").style.display = "none";
+      biodataDiv.style.display = "flex";
+      biodataDiv.innerHTML = `
+        <img src="${data.foto}" alt="${data.nama}">
+        <h2>${data.nama}</h2>
+        <p>${data.bio}</p>
+        <button class="back-button" onclick="goBack()">Kembali</button>
+      `;
+    }
+
+    function goBack() {
+      document.getElementById("main-page").style.display = "block";
+      document.getElementById("biodata").style.display = "none";
+    }
+  </script>
+</body>
+</html>
